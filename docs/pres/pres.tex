@@ -34,6 +34,7 @@
 %\usetheme{Warsaw}
 
 \usepackage{tikz}
+\usepackage{pdfpages}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \setbeamercolor{title}{bg=red!65!black,fg=white}
@@ -119,7 +120,9 @@ These are the \emph{singular values} of $A$, where $A^*$ is \emph{conjugate tran
 \framesubtitle{Geometric representation}
 %\section{Matrix decomposition}
 
-Here will be a figure of the SVD.
+\begin{figure}[h] \centering{
+\includegraphics[trim = 20mm 190mm 70mm 210mm, clip=true, scale=0.62]{svd.pdf}}
+\end{figure}  
 
 
 \end{frame}
