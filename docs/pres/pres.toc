@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{Theory}{3}{0}{2}
+\beamer@sectionintoc {3}{The project}{3}{0}{3}
