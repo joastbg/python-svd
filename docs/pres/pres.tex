@@ -34,6 +34,8 @@
 %\usetheme{Warsaw}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathreplacing}
 \usepackage{pdfpages}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
@@ -47,7 +49,7 @@
 
 \institute[Lund University]{Computational Programming with Python}
 
-\date{Project Presentation, May 2015}
+\date{Project Summary, 6/4 2015}
 
 \subject{The Hydrogen Atom}
 
@@ -70,8 +72,6 @@
 \end{frame}
 
 \section{Motivation}
-\section{Theory}
-\section{The project}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -86,7 +86,7 @@ Consider the matrix $A$
 A = \begin{bmatrix}4 & 11 & 14 \\8 & 7 & -2 \end{bmatrix}.
 \end{equation}
 
-Because $A$ is \emph{singular}, the following eigendecomposition
+Since $A$ is \emph{singular}, the following (common eigen) decomposition
 \begin{equation}
 A=VDV^T
 \end{equation}
@@ -119,67 +119,55 @@ These are the \emph{singular values} of $A$, where $A^*$ is \emph{conjugate tran
 %\framesubtitle{continued}
 \framesubtitle{Geometric representation}
 %\section{Matrix decomposition}
-
+The following figure will learn you SVD for life
 \begin{figure}[h] \centering{
-\includegraphics[trim = 20mm 190mm 70mm 210mm, clip=true, scale=0.62]{svd.pdf}}
+\includegraphics[scale=0.42]{svd.png}}
 \end{figure}  
 
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Power Utility Portfolio Choice}
 
-\begin{itemize}
-    \item Portfolio Return
-        \tikz[remember picture, overlay, baseline=-.5ex]\node (n1) {};
-\end{itemize}
+\begin{frame}{Motivation}
 
+\frametitle{Motivation}
+%\framesubtitle{continued}
+\framesubtitle{The singular values of $A$}
+%\section{Matrix decomposition}
+
+For the curious mind, the \emph{singular} values of $A$ is as follows
 \begin{equation*}
 \begin{aligned}
-& \underset{\boldsymbol w_t}{\text{maximise}}
-& & \tikz[baseline,remember picture]{
-        \node[fill=blue!20,anchor=base] (t1)
-            {$\boldsymbol w_t \cdot \bar{\boldsymbol r}_t $};
-    } + \frac{1 - \gamma}{2} 
-    \tikz[baseline,remember picture]{
-            \node[fill=red!20,anchor=base] (t2)
-            {$ \boldsymbol w_t \cdot (\Sigma_t\boldsymbol w_t) $};
-    } \\
-& \text{subject to}
-& & \boldsymbol w_t \cdot \boldsymbol \iota = 1\\
-&&& \boldsymbol w_t \ge 0
-\end{aligned}
+\sigma_1 & = & 6\sqrt{10} \\
+\sigma_2 & = & 3\sqrt{10} \\
+\sigma_3 & = & 0
+\end{aligned}.
 \end{equation*}
-
-\begin{itemize}
-    \item Portfolio Variance
-        \tikz[remember picture,overlay, baseline=-.5ex]\node (n2) {};
-\end{itemize}
-
-\begin{tikzpicture}[remember picture,overlay]
-        \path[-stealth] (n1) edge [bend left] (t1);
-        \path[-stealth] (n2) edge [out=0, in=-90] (t2);
-\end{tikzpicture}
-
+They correspond to $||Av_i|| = \sigma_i $
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Motivation}
 
 \frametitle{Motivation}
 %\framesubtitle{continued}
-\framesubtitle{Geometric representation}
+\framesubtitle{The singular values of $A$ cont.}
 %\section{Matrix decomposition}
-
+Explicitly for $\sigma_2$ we have
 \begin{equation*}
-\begin{aligned}
-\sigma_1 & = & \sqrt{360} = 6\sqrt{10} \\
-\sigma_2 & = & \sqrt{90} = 3\sqrt{10} \\
-\sigma_3 & = & 0
-\end{aligned}
+A\mathbf{v}_2 = 
+\begin{bmatrix}4 & 11 & 14 \\8 & 7 & -2 \end{bmatrix}
+\begin{bmatrix}-2/3 \\ -1/3 \\ 2/3 \end{bmatrix} =
+\begin{bmatrix}3 \\ -9 \end{bmatrix}
 \end{equation*}
+and then we take the norm
+\begin{equation*}
+\implies
+ \sigma_i = ||Av_i|| = 3\sqrt{10}
+\end{equation*}
+
 
 \end{frame}
 
@@ -192,12 +180,16 @@ These are the \emph{singular values} of $A$, where $A^*$ is \emph{conjugate tran
 \framesubtitle{Geometric interpretation of singular values}
 %\section{Matrix decomposition}
 
-First two singular values of $A$ are the length of the semiaxis
-of the ellipse (Fig 2).
+The two first singular values of $A$ corresponds to the length of the semiaxis of an ellipse
+
+\begin{figure}[h] \centering{
+\includegraphics[scale=0.50]{ellipse.pdf}}
+\end{figure}  
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theory}
 
 \begin{frame}{Definition}
 
@@ -205,11 +197,11 @@ of the ellipse (Fig 2).
 %\framesubtitle{continued}
 \framesubtitle{Singular Value Decomposition}
 %\section{Matrix decomposition}
-
+The decomposition of $A$ involves an $m \times n$ matrix $\Sigma$ of the form
 \begin{equation}
 \Sigma = \begin{bmatrix}D & 0 \\ 0 & 0 \end{bmatrix}.
 \end{equation}
-
+where $D$ is an $r \times r$ diagonal matrix (r is the rank of $A$)
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -220,7 +212,8 @@ of the ellipse (Fig 2).
 %\framesubtitle{continued}
 \framesubtitle{Singular Value Decomposition}
 %\section{Matrix decomposition}
-
+$U$ is $m\times n$, $\Sigma$ is $n\times n$ and
+$V$ is $n\times n$,
 \begin{equation}
 A = U\Sigma V^*
 \end{equation}
@@ -235,13 +228,14 @@ entries is called the \emph{SVD} of $A$.
 
 \frametitle{Proof}
 \framesubtitle{Singular Value Decomposition}
-
+\textit{catch me in the break if you are interested}
+\\
 ... since $V$ is orthogonal matrix, $U\Sigma V^* = AUV^T = A$
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\section{The project}
 \begin{frame}{The Project}
 
 \frametitle{The Project}
@@ -260,7 +254,7 @@ Implement this in Python given constraints and a set of tasks.
 
 In theory we can follow the following steps
 \begin{enumerate}
-\item Find the orthogonal dianonalization of $A^T A$
+\item Find the orthogonal diagonalization of $A^T A$
 \item Set up $V$ and $\Sigma$
 \item Construct $U$
 \item Check singular values against eigenvalues ($||Av_i|| = \sigma_i $)
@@ -287,7 +281,7 @@ In theory we can follow the following steps
 \frametitle{Reality check}
 \framesubtitle{Singular Value Decomposition}
 
-you've seen this \emph{too many times} but here it is again
+SVD is considered a robust and numerically stable method, but a \emph{rank deficient\footnote{we have to guess more or less}} matrix will not produce exact zeroes for singular values. This is mainly due to finite numerical precision (IEEE-754 etc).
 
 \end{frame}
 
@@ -300,39 +294,12 @@ you've seen this \emph{too many times} but here it is again
 
 Requirements for the project
 \begin{enumerate}
-\item 1
-\item 2
-\item 3
-\item 4
+\item Givens rotations (to bring back $c$ to the x-axis)
+\item Use Python
+\item Visualize the computation (decomposition)
+\item Have fun
 \end{enumerate}
 
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{The Project}
-
-\frametitle{The Project}
-\framesubtitle{Overview of numerical algorithms}
-
-Overview of algorithms for SVD implementation
-\begin{enumerate}
-\item 1
-\item 2
-\item 3
-\item 4
-\end{enumerate}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{The Project}
-
-\frametitle{The Project}
-\framesubtitle{The algorithm used}
-
-\textbf{Motivation}:\\ Suggested in the project description\footnote{checked some references anyhow}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,9 +311,9 @@ Overview of algorithms for SVD implementation
 
 \textbf{How it was done}
 \begin{enumerate}
-\item Paper and pen before thinking code
-\item Just a few keystrokes, i.e. Python is a reduced \emph{Lisp}
-\item Emacs
+\item Paper and pen and a good reference\footnote{Numerical Recipes In C, etc.}
+\item A few keystrokes, i.e. Python is a reduced \emph{Lisp}
+\item Emacs, git and Latex
 \item MATLAB (as a reference)
 \end{enumerate}
 
@@ -360,10 +327,10 @@ Overview of algorithms for SVD implementation
 \frametitle{The Project}
 \framesubtitle{Challenges}
 
-Yes, \textbf{software development} plus \textbf{numerical analysis} is 
+Well, \textbf{software development} and \textbf{numerical analysis}
 \begin{itemize}
-\item A fruitful combination full of surprises
-\item Not that bad if you unplug and read some books first
+\item will test your skills (to some extent at least)
+\item will learn you something new
 \end{itemize}
 
 \end{frame}
@@ -375,8 +342,8 @@ Yes, \textbf{software development} plus \textbf{numerical analysis} is
 \frametitle{The Project}
 \framesubtitle{Challenges}
 
-\textbf{Not just one thing remains}:\\
-Actually appreciate and find use for the final software\footnote{The theory is clear enough}
+\textbf{Now, \emph{just} one thing remains...}\\
+
 
 \end{frame}
 
@@ -385,10 +352,22 @@ Actually appreciate and find use for the final software\footnote{The theory is c
 \begin{frame}{The Project}
 
 \frametitle{The Project}
-\framesubtitle{Checkout the source\footnote{The code will be there soon}}
+\framesubtitle{Challenges}
 
+Go home and decompose some matrices!
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Project}
+
+\frametitle{The Project}
+\framesubtitle{Checkout the source}
+
+Checkout the project\footnote{there will be updates}
 \begin{center}
-\texttt{http://github.com/josatbg/python-svd}
+\texttt{http://github.com/joastbg/python-svd}
 \end{center}
 
 \end{frame}

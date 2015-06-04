@@ -6,30 +6,30 @@
 \headcommand {\sectionentry {1}{Motivation}{3}{Motivation}{0}}
 \headcommand {\beamer@sectionpages {1}{2}}
 \headcommand {\beamer@subsectionpages {1}{2}}
-\headcommand {\sectionentry {2}{Theory}{3}{Theory}{0}}
-\headcommand {\beamer@sectionpages {3}{2}}
-\headcommand {\beamer@subsectionpages {3}{2}}
-\headcommand {\sectionentry {3}{The project}{3}{The project}{0}}
-\headcommand {\beamer@sectionpages {3}{2}}
-\headcommand {\beamer@subsectionpages {3}{2}}
-\headcommand {\slideentry {3}{0}{3}{3/3}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\slideentry {3}{0}{4}{4/4}{}{0}}
+\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\slideentry {3}{0}{5}{5/5}{}{0}}
+\headcommand {\slideentry {1}{0}{5}{5/5}{}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\slideentry {3}{0}{6}{6/6}{}{0}}
+\headcommand {\slideentry {1}{0}{6}{6/6}{}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {3}{0}{7}{7/7}{}{0}}
+\headcommand {\slideentry {1}{0}{7}{7/7}{}{0}}
 \headcommand {\beamer@framepages {7}{7}}
-\headcommand {\slideentry {3}{0}{8}{8/8}{}{0}}
+\headcommand {\slideentry {1}{0}{8}{8/8}{}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\slideentry {3}{0}{9}{9/9}{}{0}}
+\headcommand {\sectionentry {2}{Theory}{9}{Theory}{0}}
+\headcommand {\beamer@sectionpages {3}{8}}
+\headcommand {\beamer@subsectionpages {3}{8}}
+\headcommand {\slideentry {2}{0}{9}{9/9}{}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {3}{0}{10}{10/10}{}{0}}
+\headcommand {\slideentry {2}{0}{10}{10/10}{}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {3}{0}{11}{11/11}{}{0}}
+\headcommand {\slideentry {2}{0}{11}{11/11}{}{0}}
 \headcommand {\beamer@framepages {11}{11}}
+\headcommand {\sectionentry {3}{The project}{12}{The project}{0}}
+\headcommand {\beamer@sectionpages {9}{11}}
+\headcommand {\beamer@subsectionpages {9}{11}}
 \headcommand {\slideentry {3}{0}{12}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
 \headcommand {\slideentry {3}{0}{13}{13/13}{}{0}}
@@ -52,10 +52,8 @@
 \headcommand {\beamer@framepages {21}{21}}
 \headcommand {\slideentry {3}{0}{22}{22/22}{}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\slideentry {3}{0}{23}{23/23}{}{0}}
-\headcommand {\beamer@framepages {23}{23}}
-\headcommand {\beamer@partpages {1}{23}}
-\headcommand {\beamer@subsectionpages {3}{23}}
-\headcommand {\beamer@sectionpages {3}{23}}
-\headcommand {\beamer@documentpages {23}}
-\headcommand {\def \inserttotalframenumber {23}}
+\headcommand {\beamer@partpages {1}{22}}
+\headcommand {\beamer@subsectionpages {12}{22}}
+\headcommand {\beamer@sectionpages {12}{22}}
+\headcommand {\beamer@documentpages {22}}
+\headcommand {\def \inserttotalframenumber {22}}
